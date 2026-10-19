@@ -59,7 +59,7 @@ Detailed breakdown of True Positives (caught attacks) and False Positives (false
 
 ### 3. Attack Anatomy: Hacker Timeline
 A timeline visualizing a malicious insider's behavior score dropping significantly below their normal historical threshold during an attack phase.
-![Hacker Timeline](timeline_YOUR_HACKER_ID.png)
+![Hacker Timeline](timeline_AJR0932.png)
 
 ---
 *Built with Python, Pandas, Scikit-Learn, and Seaborn.*

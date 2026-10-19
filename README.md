@@ -1,14 +1,24 @@
 # Behavioral Anomaly Detection: Insider Threat Analysis 🕵️‍♂️
 
+> **🚨 Note: This project is a Proof of Concept (PoC).** 
+> It is designed as an exploratory data science project rather than a production-ready security tool. While the baseline Markov Chain approach effectively demonstrates sequence-based behavioral modeling, it has limitations in real-world efficacy and scale. 
+
 This repository contains a robust data pipeline and Machine Learning model that detects malicious insider activities within corporate networks. By analyzing chronological sequences of user actions (logons, file accesses, HTTP requests) using **Markov Chains**, the system calculates the log-likelihood of behavior sequences and flags anomalies when a user deviates significantly from their historical baseline.
+
+## 🔬 Methodology & Targeted Sampling
+
+The original CERT dataset contains thousands of users with a massive class imbalance (thousands of benign employees versus a handful of insiders). To effectively evaluate the model and make the results more visible for this PoC, we apply a targeted data sampling methodology:
+
+* The system isolates active users and known insiders from the raw logs.
+* It randomly samples a highly focused subset of exactly **100 users**: **80 normal employees** and **20 malicious insiders**. 
+* This artificially balanced sample is intentionally designed to highlight the detection metrics, making the confusion matrices and performance comparisons much easier to analyze and interpret without being completely overshadowed by benign data.
 
 ## 📊 Project Architecture
 
 The codebase is modularized for scalability and memory efficiency:
-* **`data_builder.py`**: A memory-safe data engineering module that uses chunking to process gigabytes of raw logs, samples target users, and constructs the Ground Truth from scenario answer keys.
-* **`markov_utils.py`**: The core data science engine. Contains the mathematical implementation of Markov Chain transition matrices, log-likelihood scoring, baseline calculation (3-sigma rule), and visualization generators.
-* **`main.py`**: The execution pipeline that orchestrates data preparation, iterates through Markov Chain orders (1-4), evaluates performance, and outputs analytical plots.
-
+- **`data_builder.py`**: A memory-safe data engineering module that uses chunking to process gigabytes of raw logs, samples target users, and constructs the Ground Truth from scenario answer keys.
+- **`markov_utils.py`**: The core data science engine. Contains the mathematical implementation of Markov Chain transition matrices, log-likelihood scoring, baseline calculation (3-sigma rule), and visualization generators.
+- **`main.py`**: The execution pipeline that orchestrates data preparation, iterates through Markov Chain orders (1-4), evaluates performance, and outputs analytical plots.
 ## 💾 Dataset Setup
 
 This project uses the official **CERT Insider Threat Dataset (v4.2)** developed by Carnegie Mellon University (CMU). 

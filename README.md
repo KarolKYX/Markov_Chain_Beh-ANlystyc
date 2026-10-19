@@ -51,15 +51,15 @@ The model evaluates user behavior against different complexities (Orders) of Mar
 
 ### 1. Performance Comparison
 Comparison of Precision, Recall, and F1-Score across Markov Chains of Order 1 through 4.
-![Metrics Summary](metrics_summary.png)
+![Metrics Summary](images/metrics_summary.png)
 
 ### 2. Confusion Matrix (Best Model)
 Detailed breakdown of True Positives (caught attacks) and False Positives (false alarms) for our optimal configuration.
-![Confusion Matrix](confusion_matrix_order_2.png)
+![Confusion Matrix](images/confusion_matrix_order_2.png)
 
 ### 3. Attack Anatomy: Hacker Timeline
 A timeline visualizing a malicious insider's behavior score dropping significantly below their normal historical threshold during an attack phase.
-![Hacker Timeline](timeline_AJR0932.png)
+![Hacker Timeline](images/timeline_AJR0932.png)
 
 ---
 *Built with Python, Pandas, Scikit-Learn, and Seaborn.*
